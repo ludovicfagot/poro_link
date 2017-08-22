@@ -36,6 +36,8 @@ public class MatchingResultController extends BaseController {
 	}
 //
 	
+	//
+	
 	@Override
 	public void initView() {
 		((MatchingResultView)getView()).getTextField().setText(((Post)this.viewDatas.get("currentPost")).getPost_name());	
