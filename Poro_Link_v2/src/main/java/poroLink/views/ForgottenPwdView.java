@@ -15,9 +15,9 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.JButton;
 
-public class ForgottenPwdView{
+public class ForgottenPwdView extends BaseView {
 
-	private JPanel contentPane;
+
 	private JTextArea indicationsTextArea;
 	private JPanel returnPwdPanel;
 	private JLabel mailLabel;
@@ -25,6 +25,7 @@ public class ForgottenPwdView{
 	private JButton btnValidate;
 	private JLabel failLabel;
 	private JPanel panel;
+	private JPanel panelBlock;
 
 	public JPanel getContentPane() {
 		return contentPane;
@@ -87,27 +88,28 @@ public class ForgottenPwdView{
 	 */
 	public ForgottenPwdView(JFrame frame) {
 		
-		contentPane = new JPanel();
-		ViewUtils.configureJFrame(frame, contentPane);
+		super.pageName = "Mot passe oublié";
+		JPanel panel = new JPanel();
+		super.contentPane = panel;
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{30};
 		gbl_contentPane.rowHeights = new int[]{30};
-		contentPane.setLayout(gbl_contentPane);
+		panel.setLayout(gbl_contentPane);
 		
-		panel = new JPanel();
-		panel.setOpaque(false);
+		panelBlock = new JPanel();
+		panelBlock.setOpaque(false);
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 0;
-		contentPane.add(panel, gbc_panel);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{30, 30};
-		gbl_panel.rowHeights = new int[]{30, 30, 82, 30, 30, 30};
-		gbl_panel.columnWeights = new double[]{0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-		panel.setLayout(gbl_panel);
+		panel.add(panelBlock, gbc_panel);
+		GridBagLayout gbl_panelBlock = new GridBagLayout();
+		gbl_panelBlock.columnWidths = new int[]{30, 30};
+		gbl_panelBlock.rowHeights = new int[]{30, 30, 82, 30, 30, 30};
+		gbl_panelBlock.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panelBlock.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		panelBlock.setLayout(gbl_panelBlock);
 		
 		indicationsTextArea = new JTextArea();
 		GridBagConstraints gbc_indicationsTextArea = new GridBagConstraints();
@@ -115,7 +117,7 @@ public class ForgottenPwdView{
 		gbc_indicationsTextArea.insets = new Insets(0, 0, 5, 0);
 		gbc_indicationsTextArea.gridx = 0;
 		gbc_indicationsTextArea.gridy = 0;
-		panel.add(indicationsTextArea, gbc_indicationsTextArea);
+		panelBlock.add(indicationsTextArea, gbc_indicationsTextArea);
 		indicationsTextArea.setForeground(new java.awt.Color(245, 243, 245));
 		indicationsTextArea.setOpaque(false);
 		indicationsTextArea.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -127,7 +129,7 @@ public class ForgottenPwdView{
 		gbc_returnPwdPanel.insets = new Insets(0, 0, 5, 0);
 		gbc_returnPwdPanel.gridx = 0;
 		gbc_returnPwdPanel.gridy = 2;
-		panel.add(returnPwdPanel, gbc_returnPwdPanel);
+		panelBlock.add(returnPwdPanel, gbc_returnPwdPanel);
 		returnPwdPanel.setBackground(new java.awt.Color(245, 243, 245, 150));
 		GridBagLayout gbl_returnPwdPanel = new GridBagLayout();
 		gbl_returnPwdPanel.columnWidths = new int[]{30, 30, 30, 129, 30};
@@ -171,7 +173,7 @@ public class ForgottenPwdView{
 		gbc_btnValidate.insets = new Insets(0, 0, 5, 0);
 		gbc_btnValidate.gridx = 0;
 		gbc_btnValidate.gridy = 3;
-		panel.add(btnValidate, gbc_btnValidate);
+		panelBlock.add(btnValidate, gbc_btnValidate);
 	}
 
 }

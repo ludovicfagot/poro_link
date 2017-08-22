@@ -8,59 +8,64 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
+import poroLink.entities.AppUser;
+import poroLink.entities.Candidate;
+import poroLink.entities.Company;
+import poroLink.managers.ViewsManager;
 import poroLink.views.ConnectionView;
 
-public class ConnectionController {
+
+public class ConnectionController extends BaseController {
+	
+	private AppUser user;
 	
 	private JFrame frame;
 	private ConnectionView view;
-
 	public ConnectionController(JFrame frame) {
-		this.frame=frame;
+		super.frame = frame;
+		user = new Company(888,"ma compagyt");
+		super.view = new ConnectionView(this.frame);
 		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					view = new ConnectionView(ConnectionController.this.frame);
-					frame.setVisible(true);
-					registrationEvent();
-					connectionEvent();
-					forgottenPwdEvent();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 	
-	private void registrationEvent() {
+	@Override
+	public void initEvent() {
+		
+		ConnectionView view = (ConnectionView) super.view;
+		
 		view.getBtnRegistration().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				view.getBtnRegistration().setContentAreaFilled(false);
-				new RegistrationController(frame);
+				ViewsManager.getInstance().next(new RegistrationController(frame));
 			}
 		});
-	}
-	
-	private void connectionEvent() {
+		
 		view.getBtnConnection().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-					//TODO
+				view.getBtnConnection().setContentAreaFilled(false);
+				ViewsManager.getInstance().next(new HomeController(frame));
 			}
 		});
-	}
-	
-	private void forgottenPwdEvent() {
+		
 		view.getForgottenPwdLabel().addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				new ForgottenPwdController(frame);
+
+				ViewsManager.getInstance().next(new ForgottenPwdController(frame));
 			}
 		});
+		
 	}
+	
+	@Override
+	public void setupDatas() {
+		this.viewDatas.put("currentUser", user);
+	}
+	
+	
 }

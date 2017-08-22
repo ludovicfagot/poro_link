@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -38,4 +39,44 @@ public class ViewUtils {
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setBounds(screenMiddleWidth, screenMiddleHeight, frameWidth, frameHeight);
 	}
+	/*
+	public static void Edit(JFrame frame, JButton JButton, JTextComponent JTextComponent) {
+
+		JButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (JTextComponent.isEditable() == true) {
+
+					JButton.setText("Modifier");
+					JTextComponent.setEditable(false);
+				} else {
+					JButton.setText("Valider");
+					JTextComponent.setEditable(true);
+				}
+				frame.getContentPane().repaint();
+
+			}
+		});
+
+	}
+
+	public static void ShowPost (JComboBox JComboBox, JTextArea JTextArea, JTextArea JTextArea2, Post post ) {
+
+		JComboBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if (JComboBox.getSelectedItem().equals(post.getPost_name())) {
+					
+					JTextArea.setText(post.getPresentation());
+					JTextArea2.setText(post.getFirstname_agent() + " " + post.getLastname_agent() + "\n"  + post.getMail_agent());
+				}
+			}
+		});
+
+		
+
+	}
+	*/
 }
