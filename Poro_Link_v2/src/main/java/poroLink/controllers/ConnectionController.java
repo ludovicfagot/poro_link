@@ -61,7 +61,7 @@ public class ConnectionController extends BaseController {
 		});
 		
 	}
-	//coucou coucou
+	//coucou coucou coucou
 	@Override
 	public void setupDatas() {
 		this.viewDatas.put("currentUser", user);
