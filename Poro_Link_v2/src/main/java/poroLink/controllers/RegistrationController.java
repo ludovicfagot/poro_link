@@ -7,32 +7,28 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
+import poroLink.entities.Candidate;
+import poroLink.views.ConnectionView;
 import poroLink.views.RegistrationView;
 
-public class RegistrationController {
+public class RegistrationController extends BaseController{
 	
 	private JFrame frame;
 	private RegistrationView view;
-	
+
 	public RegistrationController(JFrame frame) {
+
+		super.frame = frame;
+		super.view = new RegistrationView(this.frame);
 		
-		this.frame=frame;
 		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					view = new RegistrationView(RegistrationController.this.frame);
-					frame.setVisible(true);
-					choixent();
-					choixcan();
-					validmail();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
-	
+	@Override
+	public void initEvent() {
+		RegistrationView view = (RegistrationView) super.view;
+		//ConnectionView view = (ConnectionView) super.view;
+	}
+	/*
 	private void choixent() {
 		view.getCompanyRadioButton().addActionListener(new ActionListener() {
 			
@@ -109,4 +105,6 @@ public class RegistrationController {
 			}
 		});
 	}
+*/
+
 }

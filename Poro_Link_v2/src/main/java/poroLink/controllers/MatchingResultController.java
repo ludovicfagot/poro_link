@@ -39,7 +39,6 @@ public class MatchingResultController extends BaseController {
 	//
 	//
 	//
-	///
 	
 	@Override
 	public void initView() {

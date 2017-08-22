@@ -8,16 +8,18 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 
 import poroLink.views.ForgottenPwdView;
+import poroLink.views.HomeView;
 
-public class ForgottenPwdController {
+public class ForgottenPwdController extends BaseController {
 
 	private JFrame frame;
 	private ForgottenPwdView view;
 
 	public ForgottenPwdController(JFrame frame) {
 		
-		this.frame=frame;
-		
+		super.frame = frame;
+		super.view = new ForgottenPwdView(this.frame);
+		/*
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -29,8 +31,9 @@ public class ForgottenPwdController {
 				}
 			}
 		});
+		*/
 	}
-	
+	/*
 	private void sendMail() {
 		view.getBtnValidate().addActionListener(new ActionListener() {
 			
@@ -44,5 +47,11 @@ public class ForgottenPwdController {
 				}
 			}
 		});
+	}
+	*/
+
+	@Override
+	public void initEvent() {
+		ForgottenPwdView view = (ForgottenPwdView) super.view;
 	}
 }

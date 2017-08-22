@@ -34,7 +34,7 @@ public class HomeController extends BaseController {
 	@Override
 	public void initView() {
 		
-		((HomeView)getView()).getMenuBar().getLblUserfirstname().setText(((AppUser)this.viewDatas.get("currentUser")).getMail());
+		//((HomeView)getView()).getMenuBar().getLblUserfirstname().setText(((AppUser)this.viewDatas.get("currentUser")).getMail());
 		((HomeView)getView()).getTextField().setText(((AppUser)this.viewDatas.get("currentUser")).getMail());
 		
 		

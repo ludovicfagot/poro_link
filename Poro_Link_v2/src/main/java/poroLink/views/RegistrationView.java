@@ -20,9 +20,9 @@ import java.awt.Cursor;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 
-public class RegistrationView{
+public class RegistrationView  extends BaseView{
 
-	private JPanel contentPane;
+
 	private JPanel registrationPanel;
 	private JLabel mailLabel;
 	private JTextField mailText;
@@ -34,7 +34,7 @@ public class RegistrationView{
 	private JRadioButton companyRadioButton;
 	private JLabel siretLabel;
 	private JTextField siretText;
-	private JPanel panel;
+	private JPanel panelBlock;
 	private JPasswordField pwdText;
 	private JPasswordField validPwdText;
 	private JTextArea failAlert;
@@ -156,27 +156,28 @@ public class RegistrationView{
 	 */
 	public RegistrationView(JFrame frame) {
 		
-		contentPane = new JPanel();
-		ViewUtils.configureJFrame(frame, contentPane);
+		super.pageName = "Registration";
+		JPanel panel = new JPanel();
+		super.contentPane = panel;
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{30};
 		gbl_contentPane.rowHeights = new int[]{30};
-		contentPane.setLayout(gbl_contentPane);
+		panel.setLayout(gbl_contentPane);
 		
-		panel = new JPanel();
-		panel.setOpaque(false);
-		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 0;
-		gbc_panel.gridy = 0;
-		contentPane.add(panel, gbc_panel);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{30, 30, 65, 0};
-		gbl_panel.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-		panel.setLayout(gbl_panel);
+		panelBlock = new JPanel();
+		panelBlock.setOpaque(false);
+		GridBagConstraints gbc_panelBlock = new GridBagConstraints();
+		gbc_panelBlock.fill = GridBagConstraints.BOTH;
+		gbc_panelBlock.gridx = 0;
+		gbc_panelBlock.gridy = 0;
+		panel.add(panelBlock, gbc_panelBlock);
+		GridBagLayout gbl_panelBlock = new GridBagLayout();
+		gbl_panelBlock.columnWidths = new int[]{30, 30, 65, 0};
+		gbl_panelBlock.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
+		gbl_panelBlock.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panelBlock.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		panelBlock.setLayout(gbl_panelBlock);
 		
 		registrationPanel = new JPanel();
 		GridBagConstraints gbc_registrationPanel = new GridBagConstraints();
@@ -186,7 +187,7 @@ public class RegistrationView{
 		gbc_registrationPanel.insets = new Insets(0, 0, 5, 0);
 		gbc_registrationPanel.gridx = 0;
 		gbc_registrationPanel.gridy = 0;
-		panel.add(registrationPanel, gbc_registrationPanel);
+		panelBlock.add(registrationPanel, gbc_registrationPanel);
 		registrationPanel.setBackground(new java.awt.Color(245, 243, 245, 150));
 		GridBagLayout gbl_registrationPanel = new GridBagLayout();
 		gbl_registrationPanel.columnWidths = new int[]{0, 213, 160, 30};
@@ -312,8 +313,8 @@ public class RegistrationView{
 		gbc_btnRegistration.gridwidth = 3;
 		gbc_btnRegistration.gridx = 0;
 		gbc_btnRegistration.gridy = 10;
-		panel.add(btnRegistration, gbc_btnRegistration);
-		btnRegistration.setIcon(new ImageIcon("D:Pictures/registrationButton.png"));
+		panelBlock.add(btnRegistration, gbc_btnRegistration);
+		btnRegistration.setIcon(new ImageIcon("Pictures/registrationButton.png"));
 		btnRegistration.setBorder(null);
 		btnRegistration.setContentAreaFilled(false);
 		btnRegistration.setRolloverEnabled(false);
@@ -322,6 +323,7 @@ public class RegistrationView{
 		group = new ButtonGroup();
 		group.add(companyRadioButton);
 		group.add(candidateRadioButton);
+		
 	
 	}
 
