@@ -1,12 +1,9 @@
 package poroLink.controllers;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 
 import poroLink.entities.Candidate;
 import poroLink.views.ProfileCandidateView;
-import poroLink.views.ProfileCompanyView;
 
 
 /**

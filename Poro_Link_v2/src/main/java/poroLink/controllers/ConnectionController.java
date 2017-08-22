@@ -1,6 +1,6 @@
 package poroLink.controllers;
 
-import java.awt.EventQueue;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -9,7 +9,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 
 import poroLink.entities.AppUser;
-import poroLink.entities.Candidate;
 import poroLink.entities.Company;
 import poroLink.managers.ViewsManager;
 import poroLink.views.ConnectionView;

@@ -6,17 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
-import javax.swing.event.ListSelectionEvent;
-
-
 import poroLink.views.customrenders.ListCellPostRender;
-import poroLink.views.customrenders.ListCellUserRender;
-import poroLink.entities.AppUser;
 import poroLink.entities.*;
 import poroLink.entities.Post;
 import poroLink.managers.ViewsManager;
-import poroLink.views.HomeView;
-import poroLink.views.LoginView;
 import poroLink.views.MatchingView;
 
 public class MatchingController extends BaseController {
