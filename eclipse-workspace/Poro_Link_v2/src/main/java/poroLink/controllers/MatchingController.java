@@ -113,11 +113,11 @@ public class MatchingController extends BaseController {
 		List<Skill> skills2 = new ArrayList<Skill>();
 		List<Skill> skills3 = new ArrayList<Skill>();
 
-		Skill s1 = new Skill(1,"JAVA",0,0);
-		Skill s2 = new Skill(2,"C",0,0);
-		Skill s3 = new Skill(3,"C++",0,0);
-		Skill s4 = new Skill(4,"html",0,0);
-		Skill s5 = new Skill(5,"css",0,0);
+		Skill s1 = new Skill(1,"JAVA",5,0);
+		Skill s2 = new Skill(2,"C",2,0);
+		Skill s3 = new Skill(3,"C++",3,0);
+		Skill s4 = new Skill(4,"html",2,0);
+		Skill s5 = new Skill(5,"css",5,0);
 		
 		skills1.add(s1);
 		skills1.add(s2);
@@ -142,7 +142,7 @@ public class MatchingController extends BaseController {
 
 
 		Post j1 = new Post(1,"le podte1");
-		j1.setSkills(skills3);
+		j1.setSkills(skills1);
 
 		Post j2 = new Post(2,"le podte2");
 		j2.setSkills(skills2);
