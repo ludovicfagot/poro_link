@@ -65,6 +65,8 @@ public class ConnectionController extends BaseController {
 	@Override
 	public void setupDatas() {
 		this.viewDatas.put("currentUser", user);
+		
+		
 	}
 	
 	
