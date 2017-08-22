@@ -31,7 +31,7 @@ public class ConnectionController extends BaseController {
 	@Override
 	public void initEvent() {
 		
-		ConnectionView view = (ConnectionView) super.view;
+		view = (ConnectionView) super.view;
 		
 		view.getBtnRegistration().addActionListener(new ActionListener() {
 			
