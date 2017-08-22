@@ -1,0 +1,48 @@
+juil. 10, 2017 5:23:00 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [GanttOptions] save(): finished!!
+juil. 10, 2017 5:23:04 PM org.bardsoftware.impl.eclipsito.BootImpl shutdown
+INFOS: Eclipsito platform is shut down.
+juil. 23, 2017 10:46:37 AM net.sourceforge.ganttproject.GPLogger log
+INFOS: [GanttOptions] save(): finished!!
+juil. 23, 2017 10:46:37 AM org.bardsoftware.impl.eclipsito.BootImpl shutdown
+INFOS: Eclipsito platform is shut down.
+juil. 25, 2017 7:48:30 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin Task: name=Running export
+juil. 25, 2017 7:48:30 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin subTask: name=Export project
+juil. 25, 2017 7:48:31 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished subTask
+juil. 25, 2017 7:48:31 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin subTask: name=Finalizing
+juil. 25, 2017 7:48:31 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished subTask
+juil. 25, 2017 7:48:31 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished Task
+juil. 25, 2017 7:54:39 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin Task: name=Running export
+juil. 25, 2017 7:54:39 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin subTask: name=Export project
+juil. 25, 2017 7:54:40 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished subTask
+juil. 25, 2017 7:54:40 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin subTask: name=Finalizing
+juil. 25, 2017 7:54:40 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished subTask
+juil. 25, 2017 7:54:40 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished Task
+juil. 25, 2017 7:58:00 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin Task: name=Running export
+juil. 25, 2017 7:58:00 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin subTask: name=Export project
+juil. 25, 2017 7:58:02 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished subTask
+juil. 25, 2017 7:58:02 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] begin subTask: name=Finalizing
+juil. 25, 2017 7:58:02 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished subTask
+juil. 25, 2017 7:58:02 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [ProgressMonitorImpl] finished Task
+juil. 25, 2017 10:01:09 PM net.sourceforge.ganttproject.GPLogger log
+INFOS: [GanttOptions] save(): finished!!
+juil. 25, 2017 10:01:10 PM org.bardsoftware.impl.eclipsito.BootImpl shutdown
+INFOS: Eclipsito platform is shut down.
