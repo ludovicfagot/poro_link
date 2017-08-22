@@ -3,56 +3,64 @@ package poroLink.controllers;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
-import poroLink.entities.AppUser;
-import poroLink.entities.Candidate;
-import poroLink.managers.ViewsManager;
 import poroLink.views.ConnectionView;
 
-
-public class ConnectionController extends BaseController {
-	
-	private AppUser user;
+public class ConnectionController {
 	
 	private JFrame frame;
 	private ConnectionView view;
+
 	public ConnectionController(JFrame frame) {
-		super.frame = frame;
-		user = new Candidate(666,"ludo","fagot");
-		super.view = new ConnectionView(this.frame);
+		this.frame=frame;
 		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					view = new ConnectionView(ConnectionController.this.frame);
+					frame.setVisible(true);
+					registrationEvent();
+					connectionEvent();
+					forgottenPwdEvent();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 	
-	@Override
-	public void initEvent() {
-		
-		ConnectionView view = (ConnectionView) super.view;
-		
-		view.getBtnConnection().addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//new ForgottenPwdController(frame);
-				ViewsManager.getInstance().next(new MatchingController(frame));
-			}
-			
-			
-		});
+	private void registrationEvent() {
 		view.getBtnRegistration().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				view.getBtnRegistration().setContentAreaFilled(false);
-				//new RegistrationController(frame);
-				user.setMail("toto");
-				ViewsManager.getInstance().next(new MatchingController(frame));
+				new RegistrationController(frame);
 			}
-		});	
+		});
 	}
-	@Override
-	public void setupDatas() {
-		this.viewDatas.put("currentUser", user);
+	
+	private void connectionEvent() {
+		view.getBtnConnection().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					//TODO
+			}
+		});
+	}
+	
+	private void forgottenPwdEvent() {
+		view.getForgottenPwdLabel().addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new ForgottenPwdController(frame);
+			}
+		});
 	}
 }

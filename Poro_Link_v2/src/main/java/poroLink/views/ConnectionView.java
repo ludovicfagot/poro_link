@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 
-public class ConnectionView  extends BaseView {
+public class ConnectionView{
 	
 	private JPanel contentPane;
 	private JPanel logoPoro;
@@ -37,12 +37,11 @@ public class ConnectionView  extends BaseView {
 	private JButton btnRegistration;
 	private JLabel forgottenPwdLabel;
 	private JLabel failLabel;
+	private JPanel panel;
 	
-	/*
 	public JPanel getContentPane() {
 		return contentPane;
 	}
-	*/
 
 	public void setContentPane(JPanel contentPane) {
 		this.contentPane = contentPane;
@@ -173,43 +172,57 @@ public class ConnectionView  extends BaseView {
 	 */
 	public ConnectionView(JFrame frame) {
 
-		super.pageName = "Connection";
-		JPanel panel = new JPanel();
-		super.contentPane = panel;
+		contentPane = new JPanel();
+		ViewUtils.configureFirstJFrame(frame);
+		ViewUtils.configureJFrame(frame, contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{30, 30, 30, 30, 30, 30, 30, 30, 13, 30, 30, 14, 30, 0, 30, 0, 30, 22, 0, 0, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
-		gbl_contentPane.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30, 30, 61, 30, 30, 30, 30, 30};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		panel.setLayout(gbl_contentPane);
+		gbl_contentPane.columnWeights = new double[]{0.0};
+		gbl_contentPane.columnWidths = new int[]{13};
+		gbl_contentPane.rowHeights = new int[]{30};
+		contentPane.setLayout(gbl_contentPane);
+		
+		panel = new JPanel();
+		panel.setOpaque(false);
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 0;
+		gbc_panel.gridy = 0;
+		contentPane.add(panel, gbc_panel);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[]{13, 435, 0};
+		gbl_panel_1.rowHeights = new int[]{30, 30, 30, 30, 61, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel_1);
 		
 		JPanel connectionPanel = new JPanel();
+		GridBagConstraints gbc_connectionPanel = new GridBagConstraints();
+		gbc_connectionPanel.fill = GridBagConstraints.BOTH;
+		gbc_connectionPanel.gridheight = 4;
+		gbc_connectionPanel.gridwidth = 2;
+		gbc_connectionPanel.insets = new Insets(0, 0, 5, 0);
+		gbc_connectionPanel.gridx = 0;
+		gbc_connectionPanel.gridy = 0;
+		panel.add(connectionPanel, gbc_connectionPanel);
 		connectionPanel.setBackground(new java.awt.Color(245, 243, 245, 150));
-		GridBagConstraints gbc_PanelConnection = new GridBagConstraints();
-		gbc_PanelConnection.insets = new Insets(0, 0, 5, 5);
-		gbc_PanelConnection.fill = GridBagConstraints.BOTH;
-		gbc_PanelConnection.gridx = 8;
-		gbc_PanelConnection.gridy = 4;
-		gbc_PanelConnection.gridwidth = 13;
-		gbc_PanelConnection.gridheight = 4;
-		panel.add(connectionPanel, gbc_PanelConnection);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{30, 30, 0, 30, 55, 30, 30, 91, 30, 30, 30};
-		gbl_panel.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30, 0, 30, 30};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		connectionPanel.setLayout(gbl_panel);
+		GridBagLayout gbl_panel_2 = new GridBagLayout();
+		gbl_panel_2.columnWidths = new int[]{30, 55, 30, 30};
+		gbl_panel_2.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30, 0, 30, 30};
+		gbl_panel_2.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0};
+		gbl_panel_2.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		connectionPanel.setLayout(gbl_panel_2);
 		
 		failLabel = new JLabel("Informations non valides !");
 		failLabel.setFont(new Font("Arial", Font.PLAIN, 18));
 		failLabel.setForeground(Color.RED);
 		failLabel.setVisible(false);
 		GridBagConstraints gbc_FailLabel = new GridBagConstraints();
+		gbc_FailLabel.gridheight = 2;
 		gbc_FailLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_FailLabel.gridx = 4;
+		gbc_FailLabel.gridx = 1;
 		gbc_FailLabel.gridy = 0;
-		gbc_FailLabel.gridwidth = 4;
+		gbc_FailLabel.gridwidth = 2;
 		connectionPanel.add(failLabel, gbc_FailLabel);
 		
 		mailLabel = new JLabel("Adresse mail :");
@@ -217,7 +230,7 @@ public class ConnectionView  extends BaseView {
 		GridBagConstraints gbc_MailLabel = new GridBagConstraints();
 		gbc_MailLabel.anchor = GridBagConstraints.EAST;
 		gbc_MailLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_MailLabel.gridx = 4;
+		gbc_MailLabel.gridx = 1;
 		gbc_MailLabel.gridy = 2;
 		connectionPanel.add(mailLabel, gbc_MailLabel);
 		
@@ -226,9 +239,8 @@ public class ConnectionView  extends BaseView {
 		GridBagConstraints gbc_MailText = new GridBagConstraints();
 		gbc_MailText.insets = new Insets(0, 0, 5, 5);
 		gbc_MailText.fill = GridBagConstraints.HORIZONTAL;
-		gbc_MailText.gridx = 5;
+		gbc_MailText.gridx = 2;
 		gbc_MailText.gridy = 2;
-		gbc_MailText.gridwidth = 3;
 		connectionPanel.add(mailText, gbc_MailText);
 		mailText.setColumns(10);
 		
@@ -237,7 +249,7 @@ public class ConnectionView  extends BaseView {
 		GridBagConstraints gbc_PwdLabel = new GridBagConstraints();
 		gbc_PwdLabel.anchor = GridBagConstraints.EAST;
 		gbc_PwdLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_PwdLabel.gridx = 4;
+		gbc_PwdLabel.gridx = 1;
 		gbc_PwdLabel.gridy = 3;
 		connectionPanel.add(pwdLabel, gbc_PwdLabel);
 		
@@ -246,16 +258,15 @@ public class ConnectionView  extends BaseView {
 		GridBagConstraints gbc_Pwd = new GridBagConstraints();
 		gbc_Pwd.insets = new Insets(0, 0, 5, 5);
 		gbc_Pwd.fill = GridBagConstraints.HORIZONTAL;
-		gbc_Pwd.gridx = 5;
+		gbc_Pwd.gridx = 2;
 		gbc_Pwd.gridy = 3;
-		gbc_Pwd.gridwidth = 3;
 		connectionPanel.add(pwd, gbc_Pwd);
 		
 		btnConnection = new JButton();
 		btnConnection.setIcon(new ImageIcon("Pictures/connectionButton.png"));
 		GridBagConstraints gbc_BtnConnection = new GridBagConstraints();
 		gbc_BtnConnection.insets = new Insets(0, 0, 5, 5);
-		gbc_BtnConnection.gridx = 4;
+		gbc_BtnConnection.gridx = 0;
 		gbc_BtnConnection.gridy = 5;
 		gbc_BtnConnection.gridwidth = 4;
 		btnConnection.setBorder(null);
@@ -270,24 +281,23 @@ public class ConnectionView  extends BaseView {
 		forgottenPwdLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		GridBagConstraints gbc_ForgottenPwdLabel = new GridBagConstraints();
 		gbc_ForgottenPwdLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_ForgottenPwdLabel.gridx = 4;
+		gbc_ForgottenPwdLabel.gridx = 1;
 		gbc_ForgottenPwdLabel.gridy = 7;
-		gbc_ForgottenPwdLabel.gridwidth = 4;
+		gbc_ForgottenPwdLabel.gridwidth = 2;
 		connectionPanel.add(forgottenPwdLabel, gbc_ForgottenPwdLabel);
 		
 		btnRegistration = new JButton();
+		GridBagConstraints gbc_btnRegistration = new GridBagConstraints();
+		gbc_btnRegistration.gridwidth = 2;
+		gbc_btnRegistration.insets = new Insets(0, 0, 0, 5);
+		gbc_btnRegistration.gridx = 0;
+		gbc_btnRegistration.gridy = 4;
+		panel.add(btnRegistration, gbc_btnRegistration);
 		btnRegistration.setIcon(new ImageIcon("Pictures/registrationButton.png"));
-		GridBagConstraints gbc_BtnRegistration = new GridBagConstraints();
-		gbc_BtnRegistration.insets = new Insets(0, 0, 5, 5);
-		gbc_BtnRegistration.gridx = 15;
-		gbc_BtnRegistration.gridy = 8;
 		btnRegistration.setBorder(null);
 		btnRegistration.setContentAreaFilled(false);
 		btnRegistration.setRolloverEnabled(false);
 		btnRegistration.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		panel.add( btnRegistration, gbc_BtnRegistration);
-		
 	}
 
 }
-
