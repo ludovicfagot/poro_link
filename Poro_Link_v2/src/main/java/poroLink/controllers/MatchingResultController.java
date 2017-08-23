@@ -3,6 +3,9 @@ package poroLink.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -19,11 +22,36 @@ import poroLink.views.MatchingResultView;
 import poroLink.views.MatchingView;
 
 public class MatchingResultController extends BaseController {
-	public TreeMap<Integer,Integer> tmCandidate = new TreeMap<>();
+	//public TreeMap<Integer,Integer> tmCandidate = new TreeMap<>();
 	//List<String> list = new ArrayList<String>();
+	//private ArrayList<Candidate> candidatlist;
+	List<Candidate> candidatlist = new ArrayList<Candidate>();
+	Candidate candidat = new Candidate();
+
+	/**
+	 * @return the candidat
+	 */
+	public Candidate getCandidat() {
+		return candidat;
+	}
+
+	/**
+	 * @param candidat the candidat to set
+	 */
+	public void setCandidat(Candidate candidat) {
+		this.candidat = candidat;
+	}
+
+	/**
+	 * @param candidatlist the candidatlist to set
+	 */
+	public void setCandidatlist(ArrayList<Candidate> candidatlist) {
+		this.candidatlist = candidatlist;
+	}
+
 	private Object getTmCandidate;
 	
-	public MatchingResultController(JFrame frame){
+	public  MatchingResultController(JFrame frame){
 		super.frame = frame;
 		super.view = new MatchingResultView(this.frame);
 	}
@@ -40,11 +68,7 @@ public class MatchingResultController extends BaseController {
 		});
 		*/
 	}
-//
-	
-	//
-	//
-	//
+
 	
 	@Override
 	public void initView() {
@@ -63,36 +87,31 @@ public class MatchingResultController extends BaseController {
 		for (Candidate postulant : generateCandidate()) {
 			for(int i=0;i<postulant.getSkills().size();i++) {
 				((MatchingResultView)getView()).getTextAreaCanditate().setText(((MatchingResultView)getView()).getTextAreaCanditate().getText()+ "\n" +(postulant.getFirstname()+" compétences : "+ postulant.getSkills().get(i).getSkill_name()+ " niveau" +postulant.getSkills().get(i).getOwns()));
+				
 			}
 			// recherche des pourcentage des canditats
 				
-			compatibilite(postulant);
+			candidatlist.add(compatibilite(postulant));
 			
 		}
-		affichageresultat();
-		
-	}
-	private void affichageresultat() {
-		for(int i=0;i<this.tmCandidate.size();i++) {
-			//System.out.println(this.tmCandidate.);
+		//return StudentName1.compareTo(StudentName2);
+		//Collections.sort(candidatlist, getPurcentcompatibility());
+		//candidatlist.sort(null);
+		System.out.println(candidat.FirstCandidate(candidatlist).getFirstname());
+		candidatlist.remove(candidat.FirstCandidate(candidatlist));
+		System.out.println(candidat.FirstCandidate(candidatlist).getFirstname());
+		/*
+		for(int i=0;i<candidatlist.size();i++) {
+			System.out.println(candidatlist.get(i).getPurcentcompatibility());
 		}
+		*/
 		
-	}
+	}	
+	public Candidate compatibilite(Candidate candidate) {
+		
+		
 
-	/*
-	public void setpurcentageneeds() {
-		int totalpriority=0;
-		for(int j=0;j<((Post) this.viewDatas.get("currentPost")).getSkills().size();j++) {
-			totalpriority += ((Post)this.viewDatas.get("currentPost")).getSkills().get(j).getNeeds();
-			
-		}
-		((Post) this.viewDatas.get("currentPost")).getSkills().set("", 1);
-		System.out.println(totalpriority);
-	}
-	*/
-	
-	
-	public void compatibilite(Candidate candidate) {
+		
 		
 		int purcentagecomatibility=0;
 		int purcentagebesoin=0;
@@ -133,22 +152,16 @@ public class MatchingResultController extends BaseController {
 			
 		}
 		((MatchingResultView)getView()).getTextAreaCanditate().setText(((MatchingResultView)getView()).getTextAreaCanditate().getText()+ "\n" +candidate.getFirstname()+" "+ purcentagecomatibility + " %");
-			this.tmCandidate.put(candidate.getAppuser_id(), purcentagecomatibility);	
+			//this.tmCandidate.put(candidate.getAppuser_id(), purcentagecomatibility);
+		candidate.setPurcentcompatibility(purcentagecomatibility);
+		
+		return candidate;
 	}
 	
 	/**
 	 * @return the tmCandidate
 	 */
-	public TreeMap<Integer,Integer > getTmCandidate() {
-		return tmCandidate;
-	}
-
-	/**
-	 * @param tmCandidate the tmCandidate to set
-	 */
-	public void setTmCandidate(TreeMap<Integer,Integer> tmCandidate) {
-		this.tmCandidate = tmCandidate;
-	}
+	
 
 	public List<Candidate> generateCandidate() {
 		
@@ -178,9 +191,9 @@ public class MatchingResultController extends BaseController {
 		
 		Candidate c2 = new Candidate(2,"Carl Eric","ongh");
 		c2.setSkills(skills2);
-		
-		result.add(c1);
 		result.add(c2);
+		result.add(c1);
+		
 		return result;
 
 	}
