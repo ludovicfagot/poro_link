@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 import javax.swing.JFrame;
 import poroLink.entities.AppUser;
@@ -18,7 +19,10 @@ import poroLink.views.MatchingResultView;
 import poroLink.views.MatchingView;
 
 public class MatchingResultController extends BaseController {
-
+	public TreeMap<Integer,Integer> tmCandidate = new TreeMap<>();
+	//List<String> list = new ArrayList<String>();
+	private Object getTmCandidate;
+	
 	public MatchingResultController(JFrame frame){
 		super.frame = frame;
 		super.view = new MatchingResultView(this.frame);
@@ -65,8 +69,16 @@ public class MatchingResultController extends BaseController {
 			compatibilite(postulant);
 			
 		}
+		affichageresultat();
 		
 	}
+	private void affichageresultat() {
+		for(int i=0;i<this.tmCandidate.size();i++) {
+			//System.out.println(this.tmCandidate.);
+		}
+		
+	}
+
 	/*
 	public void setpurcentageneeds() {
 		int totalpriority=0;
@@ -81,6 +93,7 @@ public class MatchingResultController extends BaseController {
 	
 	
 	public void compatibilite(Candidate candidate) {
+		
 		int purcentagecomatibility=0;
 		int purcentagebesoin=0;
 		purcentagecomatibility=0;
@@ -95,8 +108,7 @@ public class MatchingResultController extends BaseController {
 				purcentagebesoin=((Post)this.viewDatas.get("currentPost")).getSkills().get(j).getNeeds()*(100/purcentagebesoin);
 				
 				if(candidate.getSkills().get(i).getSkill_id()==((Post) this.viewDatas.get("currentPost")).getSkills().get(j).getSkill_id()) {
-					
-					
+							
 					switch (candidate.getSkills().get(i).getOwns()) {
 					case 1:
 						purcentagecomatibility+=purcentagebesoin*30/100;
@@ -118,13 +130,26 @@ public class MatchingResultController extends BaseController {
 				}
 				
 			}
-			//System.out.println(purcentagecomatibility);
+			
 		}
 		((MatchingResultView)getView()).getTextAreaCanditate().setText(((MatchingResultView)getView()).getTextAreaCanditate().getText()+ "\n" +candidate.getFirstname()+" "+ purcentagecomatibility + " %");
-		//System.out.println(purcentagecomatibility);
-		
+			this.tmCandidate.put(candidate.getAppuser_id(), purcentagecomatibility);	
 	}
 	
+	/**
+	 * @return the tmCandidate
+	 */
+	public TreeMap<Integer,Integer > getTmCandidate() {
+		return tmCandidate;
+	}
+
+	/**
+	 * @param tmCandidate the tmCandidate to set
+	 */
+	public void setTmCandidate(TreeMap<Integer,Integer> tmCandidate) {
+		this.tmCandidate = tmCandidate;
+	}
+
 	public List<Candidate> generateCandidate() {
 		
 		List<Candidate> result = new ArrayList<Candidate>();
@@ -145,8 +170,8 @@ public class MatchingResultController extends BaseController {
 		skills1.add(s6);
 
 		skills2.add(s1);
-		skills2.add(s5);
-		skills2.add(s7);
+		//skills2.add(s5);
+		//skills2.add(s7);
 		
 		Candidate c1 = new Candidate(1,"Jean louis","on");
 		c1.setSkills(skills1);
