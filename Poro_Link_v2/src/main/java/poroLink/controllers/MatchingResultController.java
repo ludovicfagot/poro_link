@@ -27,12 +27,14 @@ public class MatchingResultController extends BaseController {
 	@Override
 	public void initEvent() {
 		MatchingResultView view = (MatchingResultView) super.view;
+		/*
 		view.getBtnValidate().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 					//ViewsManager.getInstance().next(new MatchingResultController(frame));	
 			}
 		});
+		*/
 	}
 //
 	
@@ -42,7 +44,9 @@ public class MatchingResultController extends BaseController {
 	
 	@Override
 	public void initView() {
-		((MatchingResultView)getView()).getTextField().setText(((Post)this.viewDatas.get("currentPost")).getPost_name());	
+		//((MatchingResultView)getView()).getTextField().setText(((Post)this.viewDatas.get("currentPost")).getPost_name());	
+		((MatchingResultView)getView()).getLblRsultatDeLa().setText("R\u00E9sultat de la recherche pour le poste : " + ((Post)this.viewDatas.get("currentPost")).getPost_name());
+		
 		//affichage des skills
 		for(int i=0;i<((Post) this.viewDatas.get("currentPost")).getSkills().size();i++) {
 			((MatchingResultView)getView()).getTextAreaSkills().setText(((MatchingResultView)getView()).getTextAreaSkills().getText()+ "\n" +((Post)this.viewDatas.get("currentPost")).getSkills().get(i).getSkill_name() + " niveau "+ ((Post)this.viewDatas.get("currentPost")).getSkills().get(i).getNeeds());

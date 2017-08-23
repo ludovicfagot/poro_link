@@ -40,8 +40,6 @@ public class MatchingController extends BaseController {
 	@Override
 	public void initEvent() {
 		MatchingView view = (MatchingView) super.view;
-
-		
 		view.getBtnValide().addActionListener(new ActionListener() {
 			/*
 			
@@ -50,26 +48,15 @@ public class MatchingController extends BaseController {
 					ViewsManager.getInstance().next(new MatchingResultController(frame));
 			}
 			*/
-			
-			
 			public void actionPerformed(ActionEvent e) {
 				
 					post = ((Post)
-					((MatchingView) getView()).getComboBoxPosts().getSelectedItem());
-					((MatchingView) getView()).getLblHello()
-					.setText(
-							post.getPost_name()
-						); 
+					((MatchingView) getView()).getComboBoxPosts().getSelectedItem()); 
 					setupDatas();
-					((MatchingView)getView()).getTextField().setText(((Post) viewDatas.get("currentPost")).getPost_name());
+					
 					ViewsManager.getInstance().next(new MatchingResultController(frame));
 			}
-
-
-			
 		});
-		
-	
 	}
 
 	@Override
@@ -84,18 +71,6 @@ public class MatchingController extends BaseController {
 		}
 		((MatchingView) getView()).getComboBoxPosts().setRenderer(
 				new ListCellPostRender());
-		
-		// affichage dans la zone de texte des datas
-		
-		/*
-		.setText(
-				((User) this.viewDatas
-						.get(ViewsDatasTerms.CURRENT_USER))
-						.getLastname());
-		*/
-		
-		//
-		
 		
 	}
 	
