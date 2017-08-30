@@ -28,7 +28,7 @@ public class HomeController extends BaseController {
 		
 		Candidate candidate = new Candidate(1,"ludo","fagot");
 		
-		view.getLblNewLabel().setIcon(new ImageIcon("Pictures/Candidate/"+candidate.getAppuser_id()+".png"));
+		view.getLblNewLabel().setIcon(new ImageIcon("Pictures/Candidate/"+candidate.getId()+".png"));
 		view.getLblNewLabel_1().setText(candidate.getFirstname()+" "+candidate.getLastname());
 		
 		view.getBtnRechercherUnCandidat().addActionListener(new ActionListener() {

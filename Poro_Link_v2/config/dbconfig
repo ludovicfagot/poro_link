@@ -1,5 +1,5 @@
-serverAdress=g
-port=
-dbName=
-login=
-password=fgfgfbhg
+serverAdress="localhost"
+port="3306"
+dbName="poro"
+login="root"
+password=""

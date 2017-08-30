@@ -28,7 +28,7 @@ public class Candidate extends AppUser {
      */
     public Candidate(int id,String firstname,String lastname) {
     	super();
-    	appuser_id=id;
+    	id=id;
     	this.role_appuser=1;
     	this.firstname=firstname;
     	this.lastname=lastname;

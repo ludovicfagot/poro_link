@@ -9,7 +9,8 @@ import java.util.Map;
 import poroLink.utils.file.FileManager;
 
 public class DBManager {
-	/** Constructeur privé */
+	
+	/** Singleton */
 	private DBManager()
 	{
 		
@@ -24,33 +25,59 @@ public class DBManager {
 		return INSTANCE;
 	}
 	
+	/** fin singleton */
+	
 	private Connection con;
+	private String DBNAME = "mydb";
+	private static final String PASSWORD = "password";
+	private static final String LOGIN = "login";
+	private static final String DB_NAME = "dbName";
+	private static final String PORT = "port";
+	private static final String SERVER_ADRESS = "serverAdress";
+	private static final String DBCONFIG = "dbconfig";
+	private static final String CONFIG = "config";
+
 	
 	public void connect() {
-		connect("config","dbconfig");
+		connect(CONFIG,DBCONFIG);
 	}
 	
 	public void connect(String path, String file) {
 		FileManager fileMnager = new FileManager(path,file);
 		Map<String,Object> datas=fileMnager.extractFromPattern();
-		connect(datas.get("serverAdress").toString(),datas.get("port").toString(),datas.get("dbName").toString(),datas.get("login").toString(),datas.get("password").toString());
+		
+		connect(datas.get(SERVER_ADRESS).toString(),datas.get(PORT).toString(),datas.get(DB_NAME).toString(),datas.get(LOGIN).toString(),datas.get(PASSWORD).toString());
 	}
 	
 	public void connect(String serverAdress, String port, String dbName, String login, String password) {
+		DBNAME = dbName;
 		try{  
 			Class.forName("com.mysql.jdbc.Driver");  
-			con=DriverManager.getConnection(  
-			"jdbc:mysql://"+serverAdress+":"+port+"/"+ dbName,login,password);  
+			con = DriverManager.getConnection("jdbc:mysql://"+serverAdress+":"+port+"/"+ dbName,login,password);
+			
 			//here sonoo is database name, root is username and password  
 			/*
-			Statement stmt=con.createStatement();  
-			ResultSet rs=stmt.executeQuery("select * from emp");  
-			while(rs.next())  
-			System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
-			con.close();
+			
 			*/  
 		}catch(Exception e){ 
 			System.err.println(e.getMessage());
 		}  
 	}
+
+	/**
+	 * @return the dBNAME
+	 */
+	public String getDBNAME() {
+		return DBNAME;
+	}
+
+	/**
+	 * @return the con
+	 */
+	public Connection getCon() {
+		return con;
+	}
+
+
+
 }

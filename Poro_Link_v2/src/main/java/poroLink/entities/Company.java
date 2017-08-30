@@ -16,7 +16,7 @@ public class Company extends AppUser {
      */
     public Company(int id,String company_name) {
     	this.role_appuser=2;
-    	this.appuser_id=id;
+    	id=id;
     	this.company_name=company_name;
     }
 	/**

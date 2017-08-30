@@ -1,9 +1,11 @@
 package poroLink.entities;
 import java.sql.Date;
 
-public abstract class AppUser {
+import poroLink.entities.base.BaseEntity;
 
-	protected int appuser_id;
+public abstract class AppUser extends BaseEntity {
+
+	//protected int appuser_id;
     protected String mail;
     private String password;
     private Date created_at;
@@ -18,20 +20,25 @@ public abstract class AppUser {
     	
     }
     
+    
 	/**
 	 * @return the appuser_id
 	 */
-	public int getAppuser_id() {
+	/*
+    public int getAppuser_id() {
 		return appuser_id;
 	}
+	*/
 
 	/**
 	 * @param appuser_id the appuser_id to set
 	 */
-	public void setAppuser_id(int appuser_id) {
+	/*
+    public void setAppuser_id(int appuser_id) {
 		this.appuser_id = appuser_id;
 	}
-
+	*/
+	
 	/**
 	 * @return the mail
 	 */
