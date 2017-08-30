@@ -1,4 +1,4 @@
 /bin/
 
 /.metadata/
-config/dbconfig
+/config/dbconfig
