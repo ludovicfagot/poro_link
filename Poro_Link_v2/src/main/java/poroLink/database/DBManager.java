@@ -13,7 +13,7 @@ public class DBManager {
 	/** Singleton */
 	private DBManager()
 	{
-		
+		connect();
 	}
  
 	/** Instance unique pré-initialisée */
@@ -45,8 +45,11 @@ public class DBManager {
 	public void connect(String path, String file) {
 		FileManager fileMnager = new FileManager(path,file);
 		Map<String,Object> datas=fileMnager.extractFromPattern();
-		
-		connect(datas.get(SERVER_ADRESS).toString(),datas.get(PORT).toString(),datas.get(DB_NAME).toString(),datas.get(LOGIN).toString(),datas.get(PASSWORD).toString());
+		String password="";
+		if(datas.containsKey(PASSWORD)) {
+			password=datas.get(PASSWORD).toString();
+		}
+		connect(datas.get(SERVER_ADRESS).toString(),datas.get(PORT).toString(),datas.get(DB_NAME).toString(),datas.get(LOGIN).toString(),password);
 	}
 	
 	public void connect(String serverAdress, String port, String dbName, String login, String password) {
