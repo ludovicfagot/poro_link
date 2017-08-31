@@ -7,8 +7,10 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import poroLink.views.customrenders.ListCellPostRender;
-import poroLink.entities.*;
+import poroLink.entities.Candidate;
+import poroLink.entities.Company;
 import poroLink.entities.Post;
+import poroLink.entities.Skill;
 import poroLink.managers.ViewsManager;
 import poroLink.views.MatchingView;
 

@@ -2,7 +2,9 @@ package poroLink.entities;
 
 import java.util.ArrayList;
 
-public class Skill {
+import poroLink.entities.base.BaseEntity;
+
+public class Skill extends BaseEntity{
 
 	 private int skill_id;
 	 private String skill_name;
@@ -18,7 +20,12 @@ public class Skill {
     	this.setNeeds(need);
     	this.setOwns(owns);
     }
-
+    public Skill() {
+    	
+    }
+    public Skill(String name) {
+    	this.setSkill_name(name);
+    }
 
 	/**
 	 * @return the needs
